@@ -1,6 +1,9 @@
+import 'package:resto_app/data/database/database.dart';
+import 'package:resto_app/provider/favorite_restaurant_provider.dart';
 import 'package:resto_app/provider/list_restaurant_provider.dart';
 import 'package:resto_app/provider/search_restaurant_provider.dart';
 import 'package:resto_app/ui/detail_restaurant_page.dart';
+import 'package:resto_app/ui/favorite_page.dart';
 import 'package:resto_app/ui/home_restaurant_page.dart';
 import 'package:resto_app/ui/list_restaurant_page.dart';
 import 'package:resto_app/ui/search_restaurant_page.dart';
@@ -26,6 +29,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<SearchProvider>(
           create: (_) => SearchProvider(apiService: ApiService()),
         ),
+        ChangeNotifierProvider<DatabaseProvider>(
+          create: (_) => DatabaseProvider(databaseHelper: DatabaseHelper()),
+        ),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -43,6 +49,8 @@ class MyApp extends StatelessWidget {
             RestaurantHomePage.routeName: (context) =>
                 const RestaurantHomePage(),
             SearchPage.routeName: (context) => const SearchPage(),
+            RestaurantFavoritePage.routeName: (context) =>
+                const RestaurantFavoritePage(),
             RestaurantListPage.routeName: (context) =>
                 const RestaurantListPage(),
             RestaurantDetailPage.routeName: (context) => RestaurantDetailPage(

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:resto_app/data/api/api_service.dart';
 import 'package:resto_app/data/model/restaurant_ressource.dart';
 
@@ -9,7 +10,7 @@ class ListRestaurantProvider extends ChangeNotifier {
   final ApiService apiService;
 
   ListRestaurantProvider({required this.apiService}) {
-    _fetchAllRestaurant();
+    fetchAllRestaurant();
   }
 
   late ListRestaurantResults _restaurantResults;
@@ -18,11 +19,11 @@ class ListRestaurantProvider extends ChangeNotifier {
   String get message => _message;
   ListRestaurantResults get result => _restaurantResults;
   ResultState get state => _state;
-  Future<dynamic> _fetchAllRestaurant() async {
+  Future<dynamic> fetchAllRestaurant() async {
     try {
       _state = ResultState.loading;
       notifyListeners();
-      final restaurantResults = await apiService.listRestaurant();
+      final restaurantResults = await apiService.listRestaurant(Client());
       if (restaurantResults.restaurants.isEmpty) {
         _state = ResultState.noData;
         notifyListeners();

@@ -7,7 +7,7 @@ class ApiService {
   static const String imageUrl =
       'https://restaurant-api.dicoding.dev/images/medium/{pictureId}';
 
-  Future<ListRestaurantResults> listRestaurant() async {
+  Future<ListRestaurantResults> listRestaurant(http.Client client) async {
     final response = await http.get(Uri.parse("${baseUrl}list"));
     if (response.statusCode == 200) {
       return ListRestaurantResults.fromJson(json.decode(response.body));

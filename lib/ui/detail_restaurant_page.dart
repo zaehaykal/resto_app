@@ -19,7 +19,7 @@ class RestaurantDetailPage extends StatelessWidget {
           backgroundColor: colorBackGround,
           appBar: AppBar(
             backgroundColor: ColorSelect().appBarColor,
-            title: const Text('Deetail Restaurant Recomended'),
+            title: const Text('Detail Restaurant Recomended'),
           ),
           body: SafeArea(
             child: Consumer<DetailRestaurantProvider>(
@@ -36,12 +36,21 @@ class RestaurantDetailPage extends StatelessWidget {
                           color: ColorSelect().color1,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Hero(
-                          tag: state.result.restaurant.pictureId,
-                          child: Image.network(
-                            'https://restaurant-api.dicoding.dev/images/large/${state.result.restaurant.pictureId}',
-                            fit: BoxFit.cover,
-                          ),
+                        child: Column(
+                          children: [
+                            Stack(
+                              alignment: Alignment.bottomRight,
+                              children: [
+                                Hero(
+                                  tag: state.result.restaurant.pictureId,
+                                  child: Image.network(
+                                    'https://restaurant-api.dicoding.dev/images/large/${state.result.restaurant.pictureId}',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
                         ),
                       ),
                       Padding(
