@@ -5,7 +5,6 @@ import 'package:resto_app/widget/card_restaurant.dart';
 
 class RestaurantListPage extends StatelessWidget {
   static const routeName = '/list_restauran';
-  final String? bangsat = 'asnji';
   const RestaurantListPage({super.key});
 
   @override

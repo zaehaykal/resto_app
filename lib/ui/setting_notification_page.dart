@@ -34,6 +34,14 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return PlatformWidget(
+      androidBuilder: _buildAndroid,
+      iosBuilder: _buildIos,
+    );
+  }
+
   Widget _buildSetting(BuildContext context) {
     return Consumer<PreferencesProvider>(builder: (context, provider, child) {
       return ListTile(
@@ -54,13 +62,5 @@ class SettingsPage extends StatelessWidget {
         ),
       );
     });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroid,
-      iosBuilder: _buildIos,
-    );
   }
 }

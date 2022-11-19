@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:resto_app/common/navigation.dart';
+import 'package:resto_app/widget/navigation.dart';
 import 'package:resto_app/data/model/restaurant_ressource.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -33,7 +33,7 @@ class NotificationHelper {
     await flutterLocalNotificationsPlugin.initialize(initializationSettings,
         onSelectNotification: (String? payload) async {
       if (payload != null) {}
-      selectNotificationSubject.add(payload ?? 'empty payload');
+      selectNotificationSubject.add(payload ?? 'Empty Payload');
     });
   }
 
