@@ -21,7 +21,11 @@ class SettingsPage extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
-      body: _buildSetting(context),
+      body: Column(
+        children: [
+          _buildSetting(context),
+        ],
+      ),
     );
   }
 
@@ -34,7 +38,7 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  @override
+
   Widget build(BuildContext context) {
     return PlatformWidget(
       androidBuilder: _buildAndroid,

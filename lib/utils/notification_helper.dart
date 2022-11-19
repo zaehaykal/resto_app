@@ -42,7 +42,7 @@ class NotificationHelper {
       ListRestaurantResults restaurants) async {
     var channelId = "1";
     var channelName = "Retaurant Recommended";
-    var channelDescription = "restaurant channel";
+    var channelDescription = "Restaurant channel";
 
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
         channelId, channelName,
