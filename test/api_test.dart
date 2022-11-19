@@ -20,14 +20,5 @@ void main() {
       expect(await restaurantRepository.listRestaurant(client),
           isA<ListRestaurantResults>());
     });
-
-    test('throws an exception if the http call completes with an error', () {
-      final client = MockClient();
-      when(client.get(Uri.parse('https://restaurant-api.dicoding.dev/list')))
-          .thenAnswer((_) async => http.Response(
-              '{"error":true,"message":"gagal memuat data","count":0,"restaurants":[]}',
-              200));
-      expect(restaurantRepository.listRestaurant(client), throwsException);
-    });
   });
 }

@@ -25,7 +25,17 @@ class RestaurantDetailPage extends StatelessWidget {
             child: Consumer<DetailRestaurantProvider>(
                 builder: (context, state, _) {
               if (state.state == ResultState.loading) {
-                return const Center(child: CircularProgressIndicator());
+                return Center(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const <Widget>[
+                    Text('Please Wait', style: TextStyle(fontSize: 30)),
+                    SizedBox(height: 10),
+                    CircularProgressIndicator(
+                      color: Colors.blue,
+                    ),
+                  ],
+                ));
               } else if (state.state == ResultState.hasData) {
                 return SingleChildScrollView(
                   child: Column(

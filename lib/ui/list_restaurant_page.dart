@@ -5,6 +5,7 @@ import 'package:resto_app/widget/card_restaurant.dart';
 
 class RestaurantListPage extends StatelessWidget {
   static const routeName = '/list_restauran';
+  final String? bangsat = 'asnji';
   const RestaurantListPage({super.key});
 
   @override
@@ -12,7 +13,17 @@ class RestaurantListPage extends StatelessWidget {
     return Consumer<ListRestaurantProvider>(
       builder: (context, state, _) {
         if (state.state == ResultState.loading) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              Text('Please Wait', style: TextStyle(fontSize: 30)),
+              SizedBox(height: 10),
+              CircularProgressIndicator(
+                color: Colors.blue,
+              ),
+            ],
+          ));
         } else if (state.state == ResultState.hasData) {
           return ListView.builder(
             shrinkWrap: true,

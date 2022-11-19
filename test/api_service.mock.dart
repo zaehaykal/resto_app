@@ -1,3 +1,4 @@
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:mockito/mockito.dart' as _mokito;
 import 'dart:async' as _async;
 import 'dart:convert' as _convert;
